@@ -13,7 +13,6 @@ class Blog extends Component {
     const blog_id = this.props.match.params.id;
     const postURL = apiURL + '/posts/' + blog_id;
     const { data: post_data } = await axios.get(
-      // `http://jsonplaceholder.typicode.com/posts/${blog_id}`
       postURL
     );
 
