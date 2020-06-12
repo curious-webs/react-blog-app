@@ -20,7 +20,7 @@ class AddPost extends Component {
   };
   async componentDidMount() {
     const postsURL = apiURL + "/posts";
-    console.log(postsURL);
+  
     const { data: posts } = await axios.get(postsURL);
     this.setState({ posts });
   }
