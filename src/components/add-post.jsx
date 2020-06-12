@@ -16,11 +16,11 @@ class AddPost extends Component {
   schema = {
     author: Joi.required().label("Author"),
     title: Joi.string().required().label("Post Title"),
-    body: Joi.string().required().label("Post Content")
+    body: Joi.string().required().label("Post Content"),
   };
   async componentDidMount() {
     const postsURL = apiURL + "/posts";
-  
+    console.log("post url is"); 
     const { data: posts } = await axios.get(postsURL);
     this.setState({ posts });
   }
@@ -35,7 +35,7 @@ class AddPost extends Component {
     const result = Joi.validate(post, this.schema, options);
     if (result.error) {
       toast("All fields are required");
-    }else{
+    } else {
       const postsURL = apiURL + "/posts";
       await axios
         .post(postsURL, {
@@ -46,7 +46,7 @@ class AddPost extends Component {
             toast("New Post Created.");
             let postId = { id: res.data.id };
             const newPost = Object.assign({}, res.data.post, postId);
-  
+
             this.setState((prevState) => ({
               posts: [...prevState.posts, newPost],
             }));
@@ -55,7 +55,6 @@ class AddPost extends Component {
           }
         });
     }
-    
   };
   render() {
     return (
