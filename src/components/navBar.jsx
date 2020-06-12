@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
+import AdminDashboard from './admin-dashboard';
 class NavBar extends Component {
   state = {};
   render() {
@@ -25,6 +26,11 @@ class NavBar extends Component {
               <li className="nav-item active">
                 <NavLink className="nav-link" to="/home">
                   Home
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/admin-dashboard">
+                  Admin Dashboard
                 </NavLink>
               </li>
              
